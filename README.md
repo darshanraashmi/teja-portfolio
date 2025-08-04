@@ -135,9 +135,9 @@ Visit `/createyourown` on your deployed site to use the interactive form for eas
 ### Current Configuration (EmailJS)
 ```javascript
 // In src/components/Contact.tsx (lines 39-50)
-Service ID: 'service_y0djk2g'
-Template ID: 'template_nikipmv'
-Public Key: 'x1Ib_mELp26LN7yCR'
+Service ID: 'service_y0dre9g'
+Template ID: 'template_nrtgipmv'
+Public Key: 'i9Ib_mTHp26LN7pDT'
 ```
 
 ### Setup Your Own EmailJS:
