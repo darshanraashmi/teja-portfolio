@@ -1,8 +1,10 @@
 import { Button } from "@/components/ui/button";
 import { ArrowDown, Download, Mail, LinkedinIcon } from "lucide-react";
 import tejaProfile from "@/assets/teja-profile.jpg";
+import { useNavigate } from "react-router-dom";
 
 const Hero = () => {
+  const navigate = useNavigate();
   return (
     <section className="min-h-screen flex items-center justify-center relative overflow-hidden">
       {/* Animated background elements */}
@@ -56,6 +58,13 @@ const Hero = () => {
               >
                 Contact Me
                 <Mail className="ml-2 h-4 w-4" />
+              </Button>
+              <Button 
+                size="lg" 
+                className="gradient-primary hover:glow-effect transition-all duration-300"
+                onClick={() => navigate('/createyourown')}
+              >
+                Generate Your Portfolio 
               </Button>
             </div>
 
