@@ -25,14 +25,14 @@ const Hero = () => {
             </div> */}
             
             <div className="flex flex-col items-center lg:items-start space-y-4">
-              <h1 className="text-5xl lg:text-7xl font-bold leading-tight">
+              <h1 className="text-3xl lg:text-5xl font-bold leading-tight">
                 <span className="gradient-primary bg-clip-text text-transparent">
-                  Darshan
+                  Teja Darshan
                 </span>
               </h1>
               
               <h2 className="text-xl lg:text-2xl text-muted-foreground leading-relaxed">
-                Senior Cloud Platform Engineer
+                Senior Cloud Platform Engineer | Cloud Operations Engineer
               </h2>
             </div>
             
@@ -72,7 +72,7 @@ const Hero = () => {
               <Button 
                 variant="ghost" 
                 size="icon" 
-                className="hover:text-accent-cyan transition-colors"
+                className="hover:text-accent-cyan hover:bg-accent-cyan/10 transition-colors"
                 onClick={() => window.open('https://linkedin.com/in/teja-darshan', '_blank')}
               >
                 <LinkedinIcon className="h-5 w-5" />
@@ -80,7 +80,7 @@ const Hero = () => {
               <Button 
                 variant="ghost" 
                 size="icon" 
-                className="hover:text-accent-cyan transition-colors"
+                className="hover:text-accent-cyan hover:bg-accent-cyan/10 transition-colors"
                 onClick={() => window.open('mailto:tejaraashmi@gmail.com', '_blank')}
               >
                 <Mail className="h-5 w-5" />

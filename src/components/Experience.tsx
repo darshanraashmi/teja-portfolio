@@ -11,7 +11,7 @@ const Experience = () => {
         "Leading cloud infrastructure design and implementation",
         "Architecting serverless solutions on AWS and Azure"
       ],
-      technologies: ["AWS", "Azure", "Terraform", "CircleCI", "Node.js"]
+      technologies: ["AWS", "Azure", "Terraform", "CircleCI", "Node.js", "Serverless Framework"]
     },
     {
       position: "Cloud Operations Engineer / Cloud Engineer",

@@ -48,9 +48,9 @@ const Header = () => {
             <div className="flex flex-col">
               <button 
                 onClick={() => scrollToSection('#home')}
-                className="text-2xl font-bold gradient-primary bg-clip-text text-transparent hover:scale-105 transition-transform"
+                className="text-xl font-bold gradient-primary bg-clip-text text-transparent hover:scale-105 transition-transform"
               >
-                Darshan
+                Teja Darshan
               </button>
               <span className="text-xs text-muted-foreground -mt-1">Senior Cloud Platform Engineer</span>
             </div>

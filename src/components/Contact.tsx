@@ -107,7 +107,7 @@ const Contact = () => {
                   </div>
                 </div>
                 
-                <div className="flex items-center gap-3 p-3 bg-secondary/50 rounded-lg hover:bg-accent-purple/10 transition-colors">
+                <div className="flex items-center gap-3 p-3 bg-secondary/50 rounded-lg hover:bg-accent-purple/1 transition-colors">
                   <LinkedinIcon className="h-5 w-5 text-accent-purple" />
                   <div>
                     <div className="font-medium">LinkedIn</div>

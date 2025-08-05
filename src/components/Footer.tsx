@@ -60,6 +60,7 @@ const Footer = () => {
                 variant="ghost" 
                 size="icon" 
                 className="hover:text-accent-cyan hover:bg-accent-cyan/10 transition-colors"
+                onClick={() => window.open('https://linkedin.com/in/teja-darshan', '_blank')}
               >
                 <LinkedinIcon className="h-5 w-5" />
               </Button>
@@ -67,6 +68,7 @@ const Footer = () => {
                 variant="ghost" 
                 size="icon" 
                 className="hover:text-accent-cyan hover:bg-accent-cyan/10 transition-colors"
+                onClick={() => window.open('mailto:tejaraashmi@gmail.com', '_blank')}
               >
                 <Mail className="h-5 w-5" />
               </Button>
@@ -74,6 +76,8 @@ const Footer = () => {
                 variant="ghost" 
                 size="icon" 
                 className="hover:text-accent-cyan hover:bg-accent-cyan/10 transition-colors"
+                onClick={() => window.open('https://github.com/darshanraashmi/tejadarshan', '_blank')}
+                
               >
                 <Github className="h-5 w-5" />
               </Button>
