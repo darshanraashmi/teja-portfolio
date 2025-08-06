@@ -23,63 +23,103 @@ const Hero = () => {
                 Senior Cloud Platform Engineer
               </span>
             </div> */}
-            
+
             <div className="flex flex-col items-center lg:items-start space-y-4">
               <h1 className="text-3xl lg:text-5xl font-bold leading-tight">
                 <span className="gradient-primary bg-clip-text text-transparent">
                   Teja Darshan
                 </span>
               </h1>
-              
+
               <h2 className="text-xl lg:text-2xl text-muted-foreground leading-relaxed">
                 Senior Cloud Platform Engineer | Cloud Operations Engineer
               </h2>
             </div>
-            
+
             <p className="text-lg text-muted-foreground mb-8 max-w-xl">
-              Designing scalable, secure, and cost-optimized cloud solutions on AWS and Azure. 
+              Designing scalable, secure, and cost-optimized cloud solutions on AWS and Azure.
               Transforming ideas into powerful serverless architectures.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mb-8">
-              <Button 
-                size="lg" 
-                className="gradient-primary hover:glow-effect transition-all duration-300"
-                onClick={() => document.getElementById('portfolio')?.scrollIntoView({ behavior: 'smooth' })}
+              <Button
+                size="lg"
+                className="
+                  gradient-primary 
+                  transition-all duration-300 ease-out 
+                  hover:scale-105 hover:shadow-lg hover:shadow-cyan-500/20 
+                  rounded-2xl flex items-center
+                "
+                onClick={() =>
+                  document.getElementById('portfolio')?.scrollIntoView({ behavior: 'smooth' })}
               >
                 View Portfolio
                 <ArrowDown className="ml-2 h-4 w-4" />
               </Button>
-              <Button 
-                variant="outline" 
-                size="lg" 
+              <Button
+                variant="outline"
+                size="lg"
                 className="border-accent-cyan text-accent-cyan hover:bg-accent-cyan hover:text-background"
                 onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
               >
                 Contact Me
                 <Mail className="ml-2 h-4 w-4" />
               </Button>
-              <Button 
-                size="lg" 
-                className="gradient-primary hover:glow-effect transition-all duration-300"
-                onClick={() => navigate('/createyourown')}
+              <Button
+                size="lg"
+                className="
+                  gradient-primary 
+                  transition-all duration-300 ease-out 
+                  hover:scale-105 hover:shadow-lg hover:shadow-cyan-500/20
+                  hover:bg-gradient-to-r hover:from-cyan-500 hover:to-blue-500
+                  rounded-2xl
+                "
+                onMouseEnter={(e) => {
+                  const tooltip = document.createElement("div");
+                  tooltip.innerText = "Click to generate your own portfolio";
+                  tooltip.style.position = "absolute";
+                  tooltip.style.background = "rgba(0, 0, 0, 0.54)";
+                  tooltip.style.color = "#fff";
+                  tooltip.style.padding = "6px 10px";
+                  tooltip.style.borderRadius = "8px";
+                  tooltip.style.fontSize = "12px";
+                  tooltip.style.whiteSpace = "nowrap";
+                  tooltip.style.top = `${e.clientY + 12}px`;
+                  tooltip.style.left = `${e.clientX + 12}px`;
+                  tooltip.style.pointerEvents = "none";
+                  tooltip.className = "custom-tooltip";
+                  document.body.appendChild(tooltip);
+
+                  e.currentTarget.onmousemove = (moveEvent) => {
+                    tooltip.style.top = `${moveEvent.clientY + 12}px`;
+                    tooltip.style.left = `${moveEvent.clientX + 12}px`;
+                  };
+                }}
+                onMouseLeave={() => {
+                  document.querySelectorAll(".custom-tooltip").forEach(el => el.remove());
+                }}
+                onClick={() => {
+                  // Remove tooltip immediately on click before navigation
+                  document.querySelectorAll(".custom-tooltip").forEach(el => el.remove());
+                  navigate('/createyourown');
+                }}
               >
-                Generate Your Portfolio 
+                Generate Your Portfolio
               </Button>
             </div>
 
             <div className="flex gap-4 justify-center lg:justify-start">
-              <Button 
-                variant="ghost" 
-                size="icon" 
+              <Button
+                variant="ghost"
+                size="icon"
                 className="hover:text-accent-cyan hover:bg-accent-cyan/10 transition-colors"
                 onClick={() => window.open('https://linkedin.com/in/teja-darshan', '_blank')}
               >
                 <LinkedinIcon className="h-5 w-5" />
               </Button>
-              <Button 
-                variant="ghost" 
-                size="icon" 
+              <Button
+                variant="ghost"
+                size="icon"
                 className="hover:text-accent-cyan hover:bg-accent-cyan/10 transition-colors"
                 onClick={() => window.open('mailto:tejaraashmi@gmail.com', '_blank')}
               >
