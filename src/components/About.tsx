@@ -91,7 +91,7 @@ const About = () => {
 
                 <div className="flex items-center gap-3 p-4 bg-secondary rounded-lg">
                   <MapPin className="h-6 w-6 text-accent-cyan flex-shrink-0" />
-                  <span className="text-lg font-medium">Ottawa, ON, Canada — Authorized to work (Work Permit)</span>
+                  <span className="text-lg font-medium">Ottawa, ON, Canada</span>
                 </div>
 
                 <div className="flex items-center gap-3 p-4 bg-secondary rounded-lg">

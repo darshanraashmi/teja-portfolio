@@ -36,7 +36,7 @@ const Hero = () => {
 
               <div className="flex items-center gap-2 text-sm lg:text-base text-accent-cyan font-medium">
                 <MapPin className="h-4 w-4 flex-shrink-0" />
-                <span>Based in Ottawa, ON, Canada — Authorized to work (Work Permit)</span>
+                <span>Based in Ottawa, ON, Canada</span>
               </div>
             </div>
 
