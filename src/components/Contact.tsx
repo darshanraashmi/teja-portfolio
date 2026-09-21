@@ -127,10 +127,10 @@ const Contact = () => {
 
                 <div className="flex items-center gap-3 p-3 bg-secondary/50 rounded-lg hover:bg-accent-cyan/10 transition-colors">
                   <MapPin className="h-5 w-5 text-accent-cyan" />
-                  <div>
+                  {/* <div>
                     <div className="font-medium">Location</div>
                     <div className="text-sm text-muted-foreground">Ottawa, ON, Canada</div>
-                  </div>
+                  </div> */}
                 </div>
 
                 <div className="flex items-center gap-3 p-3 bg-secondary/50 rounded-lg hover:bg-accent-cyan/10 transition-colors">

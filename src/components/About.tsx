@@ -60,8 +60,7 @@ const About = () => {
                 <span className="text-accent-cyan font-semibold"> 10+ years</span> designing, operating, and
                 optimizing secure cloud infrastructure across
                 <span className="text-accent-cyan font-semibold"> AWS and Azure</span> for U.S. enterprise clients
-                spanning trade finance, M&amp;A platform integration, ESG analytics, and blockchain systems. Based in
-                Ottawa, ON, Canada, and authorized to work on a valid work permit.
+                spanning trade finance, M&amp;A platform integration, ESG analytics, and blockchain systems. 
               </p>
 
               <p className="text-lg leading-relaxed text-muted-foreground mb-6">
@@ -89,10 +88,10 @@ const About = () => {
                   <span className="text-lg font-medium">AWS Certified Solutions Architect – Associate</span>
                 </div>
 
-                <div className="flex items-center gap-3 p-4 bg-secondary rounded-lg">
+                {/* <div className="flex items-center gap-3 p-4 bg-secondary rounded-lg">
                   <MapPin className="h-6 w-6 text-accent-cyan flex-shrink-0" />
                   <span className="text-lg font-medium">Ottawa, ON, Canada</span>
-                </div>
+                </div> */}
 
                 <div className="flex items-center gap-3 p-4 bg-secondary rounded-lg">
                   <GraduationCap className="h-6 w-6 text-accent-cyan flex-shrink-0" />

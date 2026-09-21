@@ -34,10 +34,10 @@ const Hero = () => {
                 AWS Solutions Architect | Cloud Operations & DevOps Engineer
               </h2>
 
-              <div className="flex items-center gap-2 text-sm lg:text-base text-accent-cyan font-medium">
+              {/* <div className="flex items-center gap-2 text-sm lg:text-base text-accent-cyan font-medium">
                 <MapPin className="h-4 w-4 flex-shrink-0" />
                 <span>Based in Ottawa, ON, Canada</span>
-              </div>
+              </div> */}
             </div>
 
             <p className="text-lg text-muted-foreground mb-8 max-w-xl">

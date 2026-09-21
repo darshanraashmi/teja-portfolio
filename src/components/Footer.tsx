@@ -50,7 +50,7 @@ const Footer = () => {
                 Teja Darshan
               </h3>
               <p className="text-muted-foreground leading-relaxed">
-                AWS Certified Solutions Architect based in Ottawa, ON, Canada. 10+ years designing and
+                AWS Certified Solutions Architect. 10+ years designing and
                 operating cloud infrastructure on AWS and Azure.
               </p>
             </div>
