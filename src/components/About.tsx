@@ -66,7 +66,8 @@ const About = () => {
               <p className="text-lg leading-relaxed text-muted-foreground mb-6">
                 Track record includes a <span className="text-accent-cyan font-semibold">zero-downtime, 400TB+ PostgreSQL migration</span> to
                 Amazon RDS, <span className="text-accent-cyan font-semibold">35–50% reductions</span> in incident resolution
-                time and downtime, and <span className="text-accent-cyan font-semibold">30% cost savings</span> through
+                time and downtime — including <span className="text-accent-cyan font-semibold">AI-assisted RCA workflows</span> built
+                on AWS Bedrock and EventBridge — and <span className="text-accent-cyan font-semibold">30% cost savings</span> through
                 FinOps practices.
               </p>
 

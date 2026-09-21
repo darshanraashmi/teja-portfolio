@@ -1,16 +1,17 @@
 import { Card } from "@/components/ui/card";
 import { Progress } from "@/components/ui/progress";
 import { Badge } from "@/components/ui/badge";
-import { 
-  Cloud, 
-  Code, 
-  Settings, 
-  Shield, 
-  Database, 
+import {
+  Cloud,
+  Code,
+  Settings,
+  Shield,
+  Database,
   Monitor,
   GitBranch,
   Server,
-  Smartphone
+  Smartphone,
+  Sparkles
 } from "lucide-react";
 import Reveal from "@/components/Reveal";
 
@@ -73,6 +74,14 @@ const Skills = () => {
         { name: "CloudWatch", level: 60, tools: ["Metrics", "Logs", "Alarms"] },
         { name: "Datadog", level: 60, tools: ["APM", "Infrastructure Monitoring"] },
         { name: "FinOps", level: 85, tools: ["Cost Explorer", "Reserved Instances", "Cost Allocation"] },
+      ]
+    },
+    {
+      title: "AI/ML & Automation",
+      icon: Sparkles,
+      skills: [
+        { name: "AWS Bedrock", level: 70, tools: ["Automated RCA Workflows", "EventBridge"] },
+        { name: "Event-Driven Automation", level: 80, tools: ["Lambda", "EventBridge", "boto3"] },
       ]
     }
   ];

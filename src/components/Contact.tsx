@@ -6,11 +6,10 @@ import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { Badge } from "@/components/ui/badge";
 import { useToast } from "@/components/ui/use-toast";
-import { 
-  Mail, 
-  LinkedinIcon, 
-  Send, 
-  MapPin, 
+import {
+  Mail,
+  LinkedinIcon,
+  Send,
   Clock,
   Phone,
   MessageCircle,
@@ -125,13 +124,13 @@ const Contact = () => {
                   </div>
                 </div>
 
-                <div className="flex items-center gap-3 p-3 bg-secondary/50 rounded-lg hover:bg-accent-cyan/10 transition-colors">
+                {/* <div className="flex items-center gap-3 p-3 bg-secondary/50 rounded-lg hover:bg-accent-cyan/10 transition-colors">
                   <MapPin className="h-5 w-5 text-accent-cyan" />
-                  {/* <div>
+                  <div>
                     <div className="font-medium">Location</div>
                     <div className="text-sm text-muted-foreground">Ottawa, ON, Canada</div>
-                  </div> */}
-                </div>
+                  </div>
+                </div> */}
 
                 <div className="flex items-center gap-3 p-3 bg-secondary/50 rounded-lg hover:bg-accent-cyan/10 transition-colors">
                   <Github className="h-5 w-5 text-accent-cyan" />
