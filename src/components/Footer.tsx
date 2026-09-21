@@ -47,11 +47,11 @@ const Footer = () => {
           <div className="lg:col-span-1">
             <div className="mb-6">
               <h3 className="text-2xl font-bold gradient-primary bg-clip-text text-transparent mb-4">
-                Teja Darshan G
+                Teja Darshan
               </h3>
               <p className="text-muted-foreground leading-relaxed">
-                Senior Cloud Platform Engineer specializing in AWS, Azure, and serverless architectures. 
-                Transforming businesses through innovative cloud solutions.
+                AWS Certified Solutions Architect based in Ottawa, ON, Canada. 10+ years designing and
+                operating cloud infrastructure on AWS and Azure.
               </p>
             </div>
             
@@ -68,7 +68,7 @@ const Footer = () => {
                 variant="ghost" 
                 size="icon" 
                 className="hover:text-accent-cyan hover:bg-accent-cyan/10 transition-colors"
-                onClick={() => window.open('mailto:tejaraashmi@gmail.com', '_blank')}
+                onClick={() => window.open('mailto:tejadarshan@gmail.com', '_blank')}
               >
                 <Mail className="h-5 w-5" />
               </Button>
@@ -76,7 +76,7 @@ const Footer = () => {
                 variant="ghost" 
                 size="icon" 
                 className="hover:text-accent-cyan hover:bg-accent-cyan/10 transition-colors"
-                onClick={() => window.open('https://github.com/darshanraashmi/tejadarshan', '_blank')}
+                onClick={() => window.open('https://github.com/darshanraashmi', '_blank')}
                 
               >
                 <Github className="h-5 w-5" />
@@ -107,10 +107,14 @@ const Footer = () => {
               {services.map((service) => {
                 const IconComponent = service.icon;
                 return (
-                  <div key={service.label} className="flex items-center gap-3 text-muted-foreground hover:text-accent-cyan transition-colors cursor-pointer">
+                  <button
+                    key={service.label}
+                    onClick={() => scrollToSection('#services')}
+                    className="flex items-center gap-3 text-muted-foreground hover:text-accent-cyan transition-colors cursor-pointer text-left"
+                  >
                     <IconComponent className="h-4 w-4" />
                     <span>{service.label}</span>
-                  </div>
+                  </button>
                 );
               })}
             </div>
@@ -122,7 +126,7 @@ const Footer = () => {
             <div className="space-y-4">
               <div className="flex items-center gap-3 text-muted-foreground">
                 <Mail className="h-4 w-4 text-accent-cyan" />
-                <span>tejaraashmi@gmail.com</span>
+                <span>tejadarshan@gmail.com</span>
               </div>
               <div className="flex items-center gap-3 text-muted-foreground">
                 <LinkedinIcon className="h-4 w-4 text-accent-purple" />
@@ -144,7 +148,7 @@ const Footer = () => {
         {/* Bottom Bar */}
         <div className="flex flex-col md:flex-row justify-between items-center gap-4">
           <div className="text-muted-foreground text-center md:text-left">
-            <p>&copy; 2024 Teja Darshan G. All rights reserved.</p>
+            <p>&copy; {new Date().getFullYear()} Teja Darshan. All rights reserved.</p>
             <p className="text-sm mt-1">
               Built with React, TypeScript, and Tailwind CSS
             </p>

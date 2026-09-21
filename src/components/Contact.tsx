@@ -17,6 +17,7 @@ import {
   Github
 } from "lucide-react";
 import emailjs from '@emailjs/browser';
+import Reveal from "@/components/Reveal";
 
 const Contact = () => {
   const { toast } = useToast();
@@ -80,18 +81,18 @@ const Contact = () => {
   return (
     <section id="contact" className="py-20">
       <div className="container mx-auto px-6">
-        <div className="text-center mb-16">
+        <Reveal className="text-center mb-16">
           <h2 className="text-4xl lg:text-5xl font-bold mb-6">
             Let's <span className="gradient-primary bg-clip-text text-transparent">Connect</span>
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
             Ready to transform your cloud infrastructure? Let's discuss your project and explore how we can work together.
           </p>
-        </div>
+        </Reveal>
 
         <div className="grid lg:grid-cols-3 gap-12">
           {/* Contact Information */}
-          <div className="lg:col-span-1 space-y-8">
+          <Reveal className="lg:col-span-1 space-y-8">
             <Card className="p-6 gradient-card border-accent-cyan/20">
               <h3 className="text-xl font-bold mb-6 flex items-center gap-2">
                 <MessageCircle className="h-5 w-5 text-accent-cyan" />
@@ -103,10 +104,18 @@ const Contact = () => {
                   <Mail className="h-5 w-5 text-accent-cyan" />
                   <div>
                     <div className="font-medium">Email</div>
-                    <div className="text-sm text-muted-foreground">tejaraashmi@gmail.com</div>
+                    <div className="text-sm text-muted-foreground">tejadarshan@gmail.com</div>
                   </div>
                 </div>
-                
+
+                <div className="flex items-center gap-3 p-3 bg-secondary/50 rounded-lg hover:bg-accent-cyan/10 transition-colors">
+                  <Phone className="h-5 w-5 text-accent-cyan" />
+                  <div>
+                    <div className="font-medium">Phone</div>
+                    <div className="text-sm text-muted-foreground">+1 (343) 322-7790</div>
+                  </div>
+                </div>
+
                 <div className="flex items-center gap-3 p-3 bg-secondary/50 rounded-lg hover:bg-accent-purple/1 transition-colors">
                   <LinkedinIcon className="h-5 w-5 text-accent-purple" />
                   <div>
@@ -119,7 +128,7 @@ const Contact = () => {
                   <MapPin className="h-5 w-5 text-primary" />
                   <div>
                     <div className="font-medium">Location</div>
-                    <div className="text-sm text-muted-foreground">Hyderabad</div>
+                    <div className="text-sm text-muted-foreground">Ottawa, ON, Canada</div>
                   </div>
                 </div>
                 
@@ -143,32 +152,26 @@ const Contact = () => {
 
 
             <Card className="p-6 gradient-card border-primary/20">
-              <h3 className="text-xl font-bold mb-4">Available For</h3>
+              <h3 className="text-xl font-bold mb-4">Open To</h3>
               <div className="space-y-2">
                 <Badge variant="outline" className="w-full justify-start border-accent-cyan/30 text-accent-cyan p-2">
-                  Cloud Consulting Projects
+                  AWS Solutions Architect Roles
                 </Badge>
                 <Badge variant="outline" className="w-full justify-start border-accent-purple/30 text-accent-purple p-2">
-                  DevOps Implementation
+                  Cloud Operations / DevOps Engineer Roles
                 </Badge>
                 <Badge variant="outline" className="w-full justify-start border-primary/30 text-primary p-2">
-                  Serverless Architecture
+                  Full-time Opportunities (Ottawa / Remote Canada)
                 </Badge>
                 <Badge variant="outline" className="w-full justify-start border-accent-blue/30 text-accent-cyan p-2">
-                  AWS SysOps
-                </Badge>
-                <Badge variant="outline" className="w-full justify-start border-accent-green/30 text-accent-purple p-2">
-                  AWS FinOps
-                </Badge>
-                <Badge variant="outline" className="w-full justify-start border-accent-yellow/30 text-accent-cyan p-2">
-                  Full-time Opportunities
+                  Contract / Consulting Engagements
                 </Badge>
               </div>
             </Card>
-          </div>
+          </Reveal>
 
           {/* Contact Form */}
-          <div className="lg:col-span-2">
+          <Reveal delay={150} className="lg:col-span-2">
             <Card className="p-8 gradient-card border-accent-cyan/20 hover:glow-effect transition-all duration-300">
               <h3 className="text-2xl font-bold mb-6">Send Me a Message</h3>
               
@@ -273,11 +276,11 @@ const Contact = () => {
                 </div>
               </form>
             </Card>
-          </div>
+          </Reveal>
         </div>
 
         {/* Bottom CTA */}
-        <div className="text-center mt-16">
+        <Reveal className="text-center mt-16">
           <Card className="p-8 gradient-card border-accent-cyan/20 inline-block">
             <h3 className="text-2xl font-bold mb-4">
               Ready to Start Your Cloud Journey?
@@ -287,15 +290,24 @@ const Contact = () => {
               I'm here to help you achieve your technology goals.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg" className="gradient-primary hover:glow-effect">
+              <Button
+                size="lg"
+                className="gradient-primary hover:glow-effect"
+                onClick={() => window.open('mailto:tejadarshan@gmail.com', '_blank')}
+              >
                 Hire Me for Your Project
               </Button>
-              <Button variant="outline" size="lg" className="border-accent-cyan text-accent-cyan hover:bg-accent-cyan hover:text-background">
+              <Button
+                variant="outline"
+                size="lg"
+                className="border-accent-cyan text-accent-cyan hover:bg-accent-cyan hover:text-background"
+                onClick={() => document.getElementById('services')?.scrollIntoView({ behavior: 'smooth' })}
+              >
                 View My Services
               </Button>
             </div>
           </Card>
-        </div>
+        </Reveal>
       </div>
     </section>
   );

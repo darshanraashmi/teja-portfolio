@@ -1,7 +1,8 @@
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { ExternalLink, Github, Cloud, Database, Code, Link } from "lucide-react";
+import { TrendingUp, Target, Lightbulb } from "lucide-react";
+import Reveal from "@/components/Reveal";
 
 // Import AI-generated project icons
 import corilisEsgIcon from "@/assets/corilisesg-icon.png";
@@ -9,92 +10,72 @@ import tradeSunIcon from "@/assets/tradesun-icon.png";
 import multilateralIcon from "@/assets/multilateral-icon.png";
 import blockchainIcon from "@/assets/blockchain-icon.png";
 import fingoShopIcon from "@/assets/fingoshop-icon.png";
-import isThreeIcon from "@/assets/isthree-icon.png";
 
 const Portfolio = () => {
-  const projects = [
+  const caseStudies = [
     {
-      title: "TradeSun",
-      description: "Comprehensive serverless trading platform built with AWS Lambda, API Gateway, and DynamoDB for real-time trade processing and management.",
-      image: tradeSunIcon,
-      technologies: ["AWS Lambda", "API Gateway", "DynamoDB", "Node.js", "Serverless"],
-      category: "Serverless Platform",
-      highlights: [
-        "Real-time trade processing",
-        "Scalable API architecture",
-        "Cost-optimized serverless design",
-        "High-performance database integration"
+      title: "400TB+ PostgreSQL Migration to AWS RDS",
+      image: multilateralIcon,
+      category: "AWS Migration",
+      problem: "A large PostgreSQL estate (400TB+) needed to move to Amazon RDS without disrupting a live production trading platform or risking data integrity.",
+      approach: "Designed a phased migration strategy with continuous replication and validation checkpoints, plus a cost-optimized backup tier using S3 Glacier Deep Archive for long-term retention.",
+      results: [
+        "400TB+ migrated with zero data loss",
+        "Significant backup cost reduction via S3 Glacier Deep Archive"
       ],
+      technologies: ["AWS RDS", "PostgreSQL", "S3 Glacier Deep Archive", "Data Migration"],
       color: "accent-cyan"
     },
     {
-      title: "CoriolisESG",
-      description: "Azure-based ESG compliance platform with resiliency features, App Services integration, and comprehensive backup & disaster recovery.",
-      image: corilisEsgIcon,
-      technologies: ["Azure App Services", "Logic Apps", "Azure Functions", "Disaster Recovery"],
+      title: "Multi-Region Disaster Recovery Architecture",
+      image: tradeSunIcon,
       category: "Cloud Resiliency",
-      highlights: [
-        "ESG compliance automation",
-        "Azure resiliency implementation",
-        "Backup & disaster recovery",
-        "Logic Apps integration"
+      problem: "Single-region infrastructure created unacceptable recovery time in the event of a regional outage, risking extended downtime for business-critical systems.",
+      approach: "Architected automated multi-region failover with continuous health checks and traffic rerouting, backed by regularly tested recovery runbooks.",
+      results: [
+        "40% reduction in RTO/RPO",
+        "Automated failover with no manual intervention required"
       ],
-      color: "accent-purple"
-    },
-    {
-      title: "Multilateral",
-      description: "Enterprise cloud infrastructure design with automated deployment pipelines, optimization strategies, and multi-cloud architecture.",
-      image: multilateralIcon,
-      technologies: ["Multi-cloud", "Terraform", "CloudFormation", "CI/CD"],
-      category: "Infrastructure Design",
-      highlights: [
-        "Multi-cloud architecture",
-        "Infrastructure automation",
-        "Cost optimization",
-        "Scalable deployment pipelines"
-      ],
+      technologies: ["AWS", "Multi-region DR", "Automated Failover", "Terraform"],
       color: "primary"
     },
     {
-      title: "CRC Scrap Sales",
-      description: "Blockchain-based scrap trading system using IBM Hyperledger Fabric with Node.js Loopback services for secure transactions.",
-      image: blockchainIcon,
-      technologies: ["Hyperledger Fabric", "Node.js", "Blockchain", "Smart Contracts"],
-      category: "Blockchain Solution",
-      highlights: [
-        "Secure blockchain transactions",
-        "Smart contract implementation",
-        "Decentralized trading platform",
-        "Node.js API services"
+      title: "Azure Resiliency & FinOps Optimization",
+      image: corilisEsgIcon,
+      category: "Cloud Resiliency",
+      problem: "Azure-hosted ESG compliance platform faced recurring downtime and unmanaged cloud spend, both directly impacting compliance SLAs and budget.",
+      approach: "Implemented geo-replication for high availability and applied FinOps practices — rightsizing, reserved capacity, and cost allocation reporting.",
+      results: [
+        "50% reduction in downtime",
+        "30% cost savings via FinOps practices"
       ],
+      technologies: ["Azure App Services", "Geo-Replication", "FinOps", "Logic Apps"],
+      color: "accent-purple"
+    },
+    {
+      title: "Cross-Platform Mobile Apps Shipped to Production",
+      image: fingoShopIcon,
+      category: "Mobile & Backend",
+      problem: "Needed mobile apps built and shipped end-to-end — from codebase to signed production release — without a dedicated mobile team.",
+      approach: "Built and shipped both React Native (Expo/EAS Build) and Flutter apps solo, handling signing, store listings, and release management for Google Play.",
+      results: [
+        "Apps built, signed, and published to Google Play Store production",
+        "Full ownership across two mobile frameworks (React Native + Flutter)"
+      ],
+      technologies: ["React Native", "Expo", "Flutter", "Google Play Console"],
       color: "accent-blue"
     },
     {
-      title: "FingoShop",
-      description: "Cloud-native e-commerce platform deployed on AWS and Azure with scalable architecture and integrated payment systems.",
-      image: fingoShopIcon,
-      technologies: ["AWS", "Azure", "E-commerce", "Payment Integration"],
-      category: "E-commerce Platform",
-      highlights: [
-        "Multi-cloud deployment",
-        "Scalable e-commerce architecture",
-        "Payment gateway integration",
-        "High availability design"
+      title: "Blockchain Smart Contract Trading System",
+      image: blockchainIcon,
+      category: "Blockchain",
+      problem: "A scrap trading business needed secure, auditable transactions between counterparties without a centralized trust broker.",
+      approach: "Built a permissioned blockchain system on IBM Hyperledger Fabric with Node.js Loopback services to handle smart contract logic and transaction APIs.",
+      results: [
+        "Secure, auditable blockchain-based transactions",
+        "Production system for CRC Scrap Sales, USA"
       ],
-      color: "accent-cyan"
-    },
-    {
-      title: "IsThree",
-      description: "Cloud migration and infrastructure optimization project with performance improvements and cost reduction strategies.",
-      image: isThreeIcon,
-      technologies: ["Cloud Migration", "Performance Optimization", "Cost Management"],
-      category: "Cloud Migration",
-      highlights: [
-        "Successful cloud migration",
-        "Performance optimization",
-        "Cost reduction strategies",
-        "Infrastructure modernization"
-      ],
+      technologies: ["Hyperledger Fabric", "Node.js", "Smart Contracts"],
       color: "accent-purple"
     }
   ];
@@ -102,31 +83,33 @@ const Portfolio = () => {
   return (
     <section id="portfolio" className="py-20 bg-card/30">
       <div className="container mx-auto px-6">
-        <div className="text-center mb-16">
+        <Reveal className="text-center mb-16">
           <h2 className="text-4xl lg:text-5xl font-bold mb-6">
-            Featured <span className="gradient-primary bg-clip-text text-transparent">Projects</span>
+            Featured <span className="gradient-primary bg-clip-text text-transparent">Case Studies</span>
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            A showcase of successful cloud transformations and innovative solutions
+            Real problems, the approach taken, and the measurable outcomes
           </p>
-        </div>
+        </Reveal>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {projects.map((project, index) => (
-            <Card 
-              key={index} 
-              className="overflow-hidden gradient-card border-accent-cyan/20 hover:glow-effect transition-all duration-300 group"
+        <div className="grid md:grid-cols-2 gap-8">
+          {caseStudies.map((project, index) => (
+            <Reveal key={index} delay={(index % 2) * 100}>
+            <Card
+              className="overflow-hidden gradient-card border-accent-cyan/20 hover:glow-effect hover:-translate-y-1 transition-all duration-300 group"
             >
               {/* Project Image */}
-              <div className="relative h-48 bg-gradient-accent overflow-hidden">
-                <img 
-                  src={project.image} 
-                  alt={project.title}
-                  className="w-full h-full object-cover"
+              <div className="relative h-40 bg-gradient-accent overflow-hidden">
+                <img
+                  src={project.image}
+                  alt={`${project.title} project illustration`}
+                  loading="lazy"
+                  decoding="async"
+                  className="w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-110"
                 />
                 <div className="absolute inset-0 bg-black/20"></div>
-                <Badge 
-                  variant="secondary" 
+                <Badge
+                  variant="secondary"
                   className="absolute top-4 left-4 bg-background/80 backdrop-blur-sm"
                 >
                   {project.category}
@@ -134,85 +117,86 @@ const Portfolio = () => {
               </div>
 
               <div className="p-6">
-                <h3 className="text-xl font-bold mb-3 group-hover:text-accent-cyan transition-colors">
+                <h3 className="text-xl font-bold mb-4 group-hover:text-accent-cyan transition-colors">
                   {project.title}
                 </h3>
-                
-                <p className="text-muted-foreground mb-4 leading-relaxed">
-                  {project.description}
-                </p>
 
-                {/* Key Highlights */}
-                <div className="mb-4">
-                  <h4 className="font-semibold mb-2 text-sm text-foreground">Key Features:</h4>
-                  <ul className="space-y-1">
-                    {project.highlights.slice(0, 2).map((highlight, highlightIndex) => (
-                      <li key={highlightIndex} className="flex items-center gap-2 text-sm text-muted-foreground">
-                        <div className={`w-1.5 h-1.5 bg-${project.color} rounded-full`}></div>
-                        <span>{highlight}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-
-                {/* Technologies */}
-                <div className="mb-6">
-                  <div className="flex flex-wrap gap-2">
-                    {project.technologies.map((tech, techIndex) => (
-                      <Badge 
-                        key={techIndex}
-                        variant="outline" 
-                        className={`text-xs border-${project.color}/30 text-${project.color}`}
-                      >
-                        {tech}
-                      </Badge>
-                    ))}
+                <div className="space-y-4 mb-6">
+                  <div className="flex gap-3">
+                    <Target className={`h-5 w-5 text-${project.color} flex-shrink-0 mt-0.5`} />
+                    <div>
+                      <div className="text-sm font-semibold text-foreground mb-1">Problem</div>
+                      <p className="text-sm text-muted-foreground leading-relaxed">{project.problem}</p>
+                    </div>
+                  </div>
+                  <div className="flex gap-3">
+                    <Lightbulb className={`h-5 w-5 text-${project.color} flex-shrink-0 mt-0.5`} />
+                    <div>
+                      <div className="text-sm font-semibold text-foreground mb-1">Approach</div>
+                      <p className="text-sm text-muted-foreground leading-relaxed">{project.approach}</p>
+                    </div>
+                  </div>
+                  <div className="flex gap-3">
+                    <TrendingUp className={`h-5 w-5 text-${project.color} flex-shrink-0 mt-0.5`} />
+                    <div>
+                      <div className="text-sm font-semibold text-foreground mb-1">Result</div>
+                      <ul className="space-y-1">
+                        {project.results.map((result, resultIndex) => (
+                          <li key={resultIndex} className="text-sm text-muted-foreground flex items-start gap-2">
+                            <div className={`w-1.5 h-1.5 bg-${project.color} rounded-full mt-1.5 flex-shrink-0`}></div>
+                            <span>{result}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
                   </div>
                 </div>
 
-                {/* Action Buttons - Commented out as requested */}
-                {/* 
-                <div className="flex gap-2">
-                  <Button 
-                    variant="outline" 
-                    size="sm" 
-                    className={`flex-1 border-${project.color}/30 text-${project.color} hover:bg-${project.color}/10`}
-                  >
-                    <ExternalLink className="mr-2 h-4 w-4" />
-                    View Details
-                  </Button>
-                  <Button 
-                    variant="ghost" 
-                    size="sm" 
-                    className={`text-${project.color} hover:bg-${project.color}/10`}
-                  >
-                    <Link className="h-4 w-4" />
-                  </Button>
+                {/* Technologies */}
+                <div className="flex flex-wrap gap-2">
+                  {project.technologies.map((tech, techIndex) => (
+                    <Badge
+                      key={techIndex}
+                      variant="outline"
+                      className={`text-xs border-${project.color}/30 text-${project.color}`}
+                    >
+                      {tech}
+                    </Badge>
+                  ))}
                 </div>
-                */}
               </div>
             </Card>
+            </Reveal>
           ))}
         </div>
 
         {/* Portfolio CTA */}
-        <div className="text-center mt-16">
+        <Reveal className="text-center mt-16">
           <h3 className="text-2xl font-bold mb-4">
-            Interested in Seeing More Work?
+            Want to Discuss a Similar Challenge?
           </h3>
           <p className="text-muted-foreground mb-6 max-w-2xl mx-auto">
-            These projects represent just a portion of my experience. I'd be happy to discuss 
-            specific case studies and how similar solutions could benefit your organization.
+            These are a portion of my project history. Happy to walk through architecture
+            decisions in more depth or discuss how similar approaches apply to your team.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" className="gradient-primary hover:glow-effect">
-              Request Case Studies
+            <Button
+              size="lg"
+              className="gradient-primary hover:glow-effect"
+              onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+            >
+              Get in Touch
             </Button>
-            <Button variant="outline" size="lg" className="border-accent-cyan text-accent-cyan hover:bg-accent-cyan hover:text-background">
-              Contact for Details
+            <Button
+              variant="outline"
+              size="lg"
+              className="border-accent-cyan text-accent-cyan hover:bg-accent-cyan hover:text-background"
+              onClick={() => window.open('https://linkedin.com/in/teja-darshan', '_blank')}
+            >
+              View LinkedIn
             </Button>
           </div>
-        </div>
+        </Reveal>
       </div>
     </section>
   );

@@ -9,8 +9,10 @@ import {
   Database, 
   Monitor,
   GitBranch,
-  Server
+  Server,
+  Smartphone
 } from "lucide-react";
+import Reveal from "@/components/Reveal";
 
 const Skills = () => {
   const skillCategories = [
@@ -24,13 +26,22 @@ const Skills = () => {
       ]
     },
     {
-      title: "Programming & Scripting",
+      title: "Languages",
       icon: Code,
       color: "accent-purple",
       skills: [
         { name: "Node.js", level: 95, tools: ["Express", "Serverless Framework", "REST APIs"] },
         { name: "Python", level: 85, tools: ["FastAPI", "Django", "Data Processing"] },
         { name: "Shell Scripting", level: 80, tools: ["Bash", "PowerShell", "Automation"] },
+      ]
+    },
+    {
+      title: "Mobile Development",
+      icon: Smartphone,
+      color: "accent-blue",
+      skills: [
+        { name: "React Native", level: 75, tools: ["Expo", "EAS Build", "Cross-platform UI"] },
+        { name: "Flutter", level: 65, tools: ["Google Play Store", "App Signing"] },
       ]
     },
     {
@@ -44,7 +55,7 @@ const Skills = () => {
       ]
     },
     {
-      title: "Infrastructure as Code",
+      title: "IaC / DevOps",
       icon: Settings,
       color: "accent-blue",
       skills: [
@@ -62,13 +73,13 @@ const Skills = () => {
       ]
     },
     {
-      title: "Monitoring & Observability",
+      title: "Monitoring & FinOps",
       icon: Monitor,
       color: "accent-purple",
       skills: [
         { name: "CloudWatch", level: 60, tools: ["Metrics", "Logs", "Alarms"] },
         { name: "Datadog", level: 60, tools: ["APM", "Infrastructure Monitoring"] },
-        { name: "Sumo Logic", level: 60, tools: ["Log Analytics", "SIEM"] },
+        { name: "FinOps", level: 85, tools: ["Cost Explorer", "Reserved Instances", "Cost Allocation"] },
       ]
     }
   ];
@@ -76,20 +87,21 @@ const Skills = () => {
   return (
     <section id="skills" className="py-20">
       <div className="container mx-auto px-6">
-        <div className="text-center mb-16">
+        <Reveal className="text-center mb-16">
           <h2 className="text-4xl lg:text-5xl font-bold mb-6">
             Skills & <span className="gradient-primary bg-clip-text text-transparent">Expertise</span>
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
             Comprehensive technical skills across cloud platforms, development, and DevOps practices
           </p>
-        </div>
+        </Reveal>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {skillCategories.map((category, index) => {
             const IconComponent = category.icon;
             return (
-              <Card key={index} className="p-6 gradient-card border-accent-cyan/20 hover:glow-effect transition-all duration-300 group">
+              <Reveal key={index} delay={(index % 3) * 100}>
+              <Card className="p-6 gradient-card border-accent-cyan/20 hover:glow-effect hover:-translate-y-1 transition-all duration-300 group">
                 <div className="flex items-center gap-4 mb-6">
                   <div className={`p-3 bg-${category.color}/20 rounded-lg group-hover:animate-pulse`}>
                     <IconComponent className={`h-6 w-6 text-${category.color}`} />
@@ -123,12 +135,13 @@ const Skills = () => {
                   ))}
                 </div>
               </Card>
+              </Reveal>
             );
           })}
         </div>
 
         {/* Additional tech stack */}
-        <div className="mt-16 text-center">
+        <Reveal className="mt-16 text-center">
           <h3 className="text-2xl font-semibold mb-8">Technologies & Tools</h3>
           <div className="flex flex-wrap justify-center gap-4">
             {[
@@ -138,18 +151,18 @@ const Skills = () => {
               "CloudWatch", "IAM Identity Centre", "AWS Organizations", "Azure DevOps Services",
               "CircleCI", "Jenkins", "Git", "Bitbucket", "Node.js", "Python", "Shell Scripting", 
               "Docker", "AWS ECR", "Amazon Cognito", "OAuth2", "OpenID Connect", "Snyk",
-              "Sumo Logic", "Serverless", "AWS Bedrock", "Terraform"
+              "Sumo Logic", "Serverless", "AWS Bedrock", "Terraform", "Expo", "React Native", "FastAPI"
             ].map((tech, index) => (
-              <Badge 
+              <Badge
                 key={index}
-                variant="secondary" 
-                className="px-4 py-2 text-sm bg-secondary/50 hover:bg-accent-cyan/20 hover:text-accent-cyan transition-colors cursor-default"
+                variant="secondary"
+                className="px-4 py-2 text-sm bg-secondary/50 hover:bg-accent-cyan/20 hover:text-accent-cyan hover:scale-105 transition-all cursor-default"
               >
                 {tech}
               </Badge>
             ))}
           </div>
-        </div>
+        </Reveal>
       </div>
     </section>
   );

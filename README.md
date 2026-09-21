@@ -2,9 +2,6 @@
 
 A modern, responsive portfolio website built with React, TypeScript, and Tailwind CSS. This site showcases cloud engineering expertise and serverless architecture skills.
 
-## 🚀 Live Demo
-[View Portfolio](https://lovable.dev/projects/0eb50e84-19f6-4cb3-ae86-b7d871235085)
-
 ## 📋 Table of Contents
 - [Project Structure](#project-structure)
 - [Getting Started](#getting-started)
@@ -54,11 +51,6 @@ npm install
 # Start development server
 npm run dev
 ```
-
-### Using Lovable
-1. Visit the [Lovable project](https://lovable.dev/projects/0eb50e84-19f6-4cb3-ae86-b7d871235085)
-2. Click "Edit in Lovable" to make changes
-3. Use the chat interface to modify components
 
 ## 🏗 Building Your Own Portfolio
 
@@ -204,19 +196,9 @@ Uncomment the action buttons section and add your project URLs.
 
 ## 🎯 Favicon Customization
 
-**File: `index.html` (Line 5)**
+**File: `public/favicon.svg`**
 
-**Change initials or remove favicon:**
-```html
-<!-- Option 1: Change initials (replace YI with your initials) -->
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%2306b6d4'/><text x='50' y='70' font-size='60' font-weight='bold' text-anchor='middle' fill='white'>YI</text></svg>" />
-
-<!-- Option 2: Use custom image -->
-<link rel="icon" href="/your-favicon.png" type="image/png">
-
-<!-- Option 3: Remove favicon completely -->
-<!-- Just delete or comment out the favicon link -->
-```
+Edit the gradient colors, initials, or corner radius directly in this file — it's referenced from `index.html` via `<link rel="icon" type="image/svg+xml" href="/favicon.svg" />`. A matching `public/favicon.ico` fallback is used by browsers that don't support SVG favicons; regenerate it (e.g. via an online SVG-to-ICO converter) after editing the SVG.
 
 ## 🛠 Technologies Used
 

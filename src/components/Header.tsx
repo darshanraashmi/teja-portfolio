@@ -52,7 +52,7 @@ const Header = () => {
               >
                 Teja Darshan
               </button>
-              <span className="text-xs text-muted-foreground -mt-1">Senior Cloud Platform Engineer</span>
+              <span className="text-xs text-muted-foreground -mt-1">AWS Solutions Architect</span>
             </div>
           </div>
 
@@ -71,8 +71,19 @@ const Header = () => {
 
           {/* Desktop CTA Buttons */}
           <div className="hidden lg:flex items-center space-x-4">
-            <Button 
-              size="sm" 
+            <Button
+              size="sm"
+              variant="outline"
+              className="border-accent-cyan text-accent-cyan hover:bg-accent-cyan hover:text-background"
+              asChild
+            >
+              <a href="/resume.pdf" download="Teja-Darshan-Resume.pdf">
+                <Download className="mr-2 h-4 w-4" />
+                Resume
+              </a>
+            </Button>
+            <Button
+              size="sm"
               className="gradient-primary hover:glow-effect"
               onClick={() => scrollToSection('#contact')}
             >

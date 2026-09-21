@@ -1,14 +1,16 @@
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { 
-  Cloud, 
-  Settings, 
-  GitBranch, 
-  Server, 
+import {
+  Cloud,
+  Settings,
+  GitBranch,
+  Server,
   ArrowRight,
-  CheckCircle
+  CheckCircle,
+  Smartphone
 } from "lucide-react";
+import Reveal from "@/components/Reveal";
 
 const Services = () => {
   const services = [
@@ -95,28 +97,42 @@ const Services = () => {
       ],
       technologies: ["Cost Explorer", "CloudHealth", "Terraform"],
       color: "primary"
+    },
+    {
+      icon: Smartphone,
+      title: "UI, Mobile & Backend Development",
+      description: "End-to-end mobile app and backend development, from cross-platform UI to Python-powered APIs.",
+      features: [
+        "Cross-platform UI design & development",
+        "Mobile app development with Expo",
+        "Python backend & REST API development",
+        "App store build & deployment (EAS)",
+        "Backend integration & data modeling"
+      ],
+      technologies: ["Expo", "React Native", "Python", "FastAPI"],
+      color: "accent-blue"
     }
   ];
 
   return (
     <section id="services" className="py-20">
       <div className="container mx-auto px-6">
-        <div className="text-center mb-16">
+        <Reveal className="text-center mb-16">
           <h2 className="text-4xl lg:text-5xl font-bold mb-6">
             Services <span className="gradient-primary bg-clip-text text-transparent">Offered</span>
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
             Comprehensive cloud and DevOps solutions tailored to your business needs
           </p>
-        </div>
+        </Reveal>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
           {services.map((service, index) => {
             const IconComponent = service.icon;
             return (
-              <Card 
-                key={index} 
-                className="p-8 gradient-card border-accent-cyan/20 hover:glow-effect transition-all duration-300 group cursor-pointer"
+              <Reveal key={index} delay={(index % 3) * 100}>
+              <Card
+                className="p-8 gradient-card border-accent-cyan/20 hover:glow-effect hover:-translate-y-1 transition-all duration-300 group cursor-pointer"
               >
                 <div className="flex items-center gap-4 mb-6">
                   <div className={`p-4 bg-${service.color}/20 rounded-xl group-hover:animate-pulse`}>
@@ -162,6 +178,7 @@ const Services = () => {
                   <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
                 </Button>
               </Card>
+              </Reveal>
             );
           })}
         </div>
@@ -204,7 +221,7 @@ const Services = () => {
           </div> */}
 
           {/* CTA Section */}
-          <div className="text-center">
+          <Reveal className="text-center">
             <Card className="p-8 gradient-card border-accent-cyan/20 inline-block max-w-4xl">
               <h3 className="text-2xl font-bold mb-4">
                 Ready to Transform Your Infrastructure?
@@ -231,7 +248,7 @@ const Services = () => {
                 </Button>
               </div>
             </Card>
-          </div>
+          </Reveal>
         </div>
       </div>
     </section>
