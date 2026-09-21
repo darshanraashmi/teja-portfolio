@@ -1,6 +1,5 @@
-import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Calendar, MapPin, Briefcase } from "lucide-react";
+import { MapPin } from "lucide-react";
 import Reveal from "@/components/Reveal";
 
 const Experience = () => {
@@ -97,107 +96,82 @@ const Experience = () => {
     }
   ];
 
-  const getTypeColor = (type: string) => {
-    switch (type) {
-      case "Current": return "accent-cyan";
-      case "Previous": return "accent-purple";
-      case "Specialized": return "primary";
-      case "Early Career": return "accent-blue";
-      default: return "muted";
-    }
-  };
-
   return (
     <section id="experience" className="py-20 bg-card/30">
       <div className="container mx-auto px-6">
-        <Reveal className="text-center mb-16">
-          <h2 className="text-4xl lg:text-5xl font-bold mb-6">
-            Work <span className="gradient-primary bg-clip-text text-transparent">Experience</span>
+        <Reveal className="mb-16">
+          <span className="section-eyebrow">Career Timeline</span>
+          <h2 className="text-4xl lg:text-5xl font-bold tracking-tight mb-4">
+            Experience
           </h2>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+          <p className="text-xl text-muted-foreground max-w-3xl">
             A journey through cloud technologies and serverless innovations
           </p>
         </Reveal>
 
-        <div className="relative">
-          {/* Timeline line */}
-          <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-gradient-accent hidden lg:block"></div>
-
-          <div className="space-y-12">
-            {experiences.map((exp, index) => (
-              <Reveal key={index} delay={index * 100} className="relative">
-                {/* Timeline dot */}
-                <div className="absolute left-6 top-8 w-4 h-4 bg-accent-cyan rounded-full border-4 border-background hidden lg:block animate-pulse"></div>
-
-                <div className="lg:ml-20">
-                  <Card className="p-8 gradient-card border-accent-cyan/20 hover:glow-effect hover:-translate-y-1 transition-all duration-300 group">
-                    <div className="mb-6">
-                      <div>
-                        <Badge
-                          variant="secondary" 
-                          className={`mb-3 bg-${getTypeColor(exp.type)}/20 text-${getTypeColor(exp.type)}`}
-                        >
-                          {exp.type}
-                        </Badge>
-                        <h3 className="text-2xl font-bold mb-1 group-hover:text-accent-cyan transition-colors">
-                          {exp.position}
-                        </h3>
-                        {exp.company && (
-                          <div className="flex items-center gap-2 text-accent-cyan font-medium mb-1">
-                            <Briefcase className="h-4 w-4 flex-shrink-0" />
-                            <span>{exp.company}</span>
-                          </div>
-                        )}
-                        {(exp.dates || exp.location) && (
-                          <div className="flex flex-wrap items-center gap-x-4 gap-y-1 text-sm text-muted-foreground">
-                            {exp.dates && (
-                              <span className="flex items-center gap-1.5">
-                                <Calendar className="h-3.5 w-3.5" />
-                                {exp.dates}
-                              </span>
-                            )}
-                            {exp.location && (
-                              <span className="flex items-center gap-1.5">
-                                <MapPin className="h-3.5 w-3.5" />
-                                {exp.location}
-                              </span>
-                            )}
-                          </div>
-                        )}
-                      </div>
-                    </div>
-
-                    <div className="mb-6">
-                      <h5 className="font-semibold mb-3 text-foreground">Key Responsibilities:</h5>
-                      <ul className="space-y-2">
-                        {exp.responsibilities.map((resp, respIndex) => (
-                          <li key={respIndex} className="flex items-start gap-2 text-muted-foreground">
-                            <div className="w-2 h-2 bg-accent-cyan rounded-full mt-2 flex-shrink-0"></div>
-                            <span>{resp}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-
-                    <div>
-                      <h5 className="font-semibold mb-3 text-foreground">Technologies Used:</h5>
-                      <div className="flex flex-wrap gap-2">
-                        {exp.technologies.map((tech, techIndex) => (
-                          <Badge 
-                            key={techIndex}
-                            variant="outline" 
-                            className="border-accent-cyan/30 text-accent-cyan hover:bg-accent-cyan/10 transition-colors"
-                          >
-                            {tech}
-                          </Badge>
-                        ))}
-                      </div>
-                    </div>
-                  </Card>
+        <div className="max-w-4xl">
+          {experiences.map((exp, index) => (
+            <Reveal key={index} delay={index * 80}>
+              <div
+                className={`grid grid-cols-[5.5rem_1px_1fr] sm:grid-cols-[8rem_1px_1fr] gap-x-4 sm:gap-x-8 ${
+                  index === experiences.length - 1 ? "" : "pb-10"
+                }`}
+              >
+                {/* Year marker as real typography, not a badge */}
+                <div className="pt-0.5 text-right sm:text-right">
+                  <div className="text-sm sm:text-base font-semibold text-foreground leading-tight">
+                    {exp.dates}
+                  </div>
+                  <div className="text-xs text-muted-foreground mt-0.5">{exp.type}</div>
                 </div>
-              </Reveal>
-            ))}
-          </div>
+
+                {/* Thin divider line with a dot marker at the top */}
+                <div className="relative flex justify-center">
+                  <div className="w-1.5 h-1.5 rounded-full bg-accent-cyan mt-1.5 relative z-10"></div>
+                  {index !== experiences.length - 1 && (
+                    <div className="absolute top-3 bottom-[-2.5rem] w-px bg-border"></div>
+                  )}
+                </div>
+
+                <div className="min-w-0">
+                  <h3 className="text-xl sm:text-2xl font-bold leading-snug">
+                    {exp.position}
+                  </h3>
+                  {exp.company && (
+                    <div className="text-accent-cyan font-medium mt-1">
+                      {exp.company}
+                    </div>
+                  )}
+                  {exp.location && (
+                    <div className="flex items-center gap-1.5 text-sm text-muted-foreground mt-1">
+                      <MapPin className="h-3.5 w-3.5 flex-shrink-0" />
+                      <span>{exp.location}</span>
+                    </div>
+                  )}
+
+                  <ul className="mt-4 space-y-2">
+                    {exp.responsibilities.map((resp, respIndex) => (
+                      <li key={respIndex} className="text-sm sm:text-base text-muted-foreground leading-relaxed pl-4 border-l border-border">
+                        {resp}
+                      </li>
+                    ))}
+                  </ul>
+
+                  <div className="flex flex-wrap gap-2 mt-4">
+                    {exp.technologies.map((tech, techIndex) => (
+                      <Badge
+                        key={techIndex}
+                        variant="outline"
+                        className="border-accent-cyan/30 text-accent-cyan text-xs font-normal"
+                      >
+                        {tech}
+                      </Badge>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </Reveal>
+          ))}
         </div>
       </div>
     </section>

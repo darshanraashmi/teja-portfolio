@@ -8,7 +8,7 @@
 
 @layer base {
   :root {
-    /* Dark theme base colors */
+    /* Dark theme base colors (default) */
     --background: 225 25% 8%;
     --foreground: 210 40% 98%;
 
@@ -51,7 +51,7 @@
 
     /* Design system tokens */
     --radius: 0.75rem;
-    
+
     /* Gradients */
     --gradient-primary: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--accent-purple)));
     --gradient-accent: linear-gradient(135deg, hsl(var(--accent-cyan)), hsl(var(--accent-blue)));
@@ -76,6 +76,60 @@
     --sidebar-border: 225 25% 20%;
     --sidebar-ring: 221 83% 53%;
   }
+
+  /* Light theme — same brand accents, re-tuned for contrast on a light surface.
+     Background is a muted slate tint (not nearly-white) so cards visibly sit
+     on top of the page instead of blending into a flat white wash. */
+  :root.light {
+    --background: 220 22% 93%;
+    --foreground: 225 30% 12%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 225 30% 12%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 225 30% 12%;
+
+    --primary: 221 83% 45%;
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 220 20% 88%;
+    --secondary-foreground: 225 25% 14%;
+
+    --muted: 220 18% 89%;
+    --muted-foreground: 220 12% 34%;
+
+    --accent: 187 85% 30%;
+    --accent-foreground: 210 40% 98%;
+
+    --accent-purple: 269 70% 46%;
+    --accent-cyan: 187 85% 30%;
+    --accent-blue: 221 83% 45%;
+
+    --destructive: 0 72% 45%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 220 16% 80%;
+    --input: 220 16% 85%;
+    --ring: 221 83% 45%;
+
+    --gradient-primary: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--accent-purple)));
+    --gradient-accent: linear-gradient(135deg, hsl(var(--accent-cyan)), hsl(var(--accent-blue)));
+    --gradient-card: linear-gradient(135deg, hsl(var(--card)), hsl(220 24% 96%));
+
+    --shadow-glow: 0 0 32px hsl(var(--primary) / 0.18);
+    --shadow-accent-glow: 0 0 24px hsl(var(--accent-cyan) / 0.2);
+    --shadow-card: 0 10px 30px -12px hsl(220 25% 25% / 0.2);
+
+    --sidebar-background: 220 22% 93%;
+    --sidebar-foreground: 225 30% 12%;
+    --sidebar-primary: 221 83% 45%;
+    --sidebar-primary-foreground: 210 40% 98%;
+    --sidebar-accent: 220 20% 88%;
+    --sidebar-accent-foreground: 225 25% 14%;
+    --sidebar-border: 220 16% 80%;
+    --sidebar-ring: 221 83% 45%;
+  }
 }
 
 @layer base {
@@ -92,48 +146,47 @@
   .glow-effect {
     box-shadow: var(--shadow-glow);
   }
-  
+
   .accent-glow {
     box-shadow: var(--shadow-accent-glow);
   }
-  
+
   .card-shadow {
     box-shadow: var(--shadow-card);
   }
-  
+
   .gradient-primary {
     background: var(--gradient-primary);
   }
-  
+
   .gradient-accent {
     background: var(--gradient-accent);
   }
-  
+
   .gradient-card {
     background: var(--gradient-card);
-  }
-  
-  .animate-float {
-    animation: float 6s ease-in-out infinite;
-  }
-  
-  .animate-glow {
-    animation: glow 2s ease-in-out infinite alternate;
   }
 
   .animate-fade-in {
     animation: fade-in 0.6s ease-out both;
   }
-}
 
-@keyframes float {
-  0%, 100% { transform: translateY(0px); }
-  50% { transform: translateY(-20px); }
-}
+  /* Section label — small uppercase eyebrow used above plain headings,
+     replaces the old "gradient span inside every heading" pattern */
+  .section-eyebrow {
+    @apply inline-flex items-center gap-2 text-xs font-semibold tracking-[0.2em] uppercase text-accent-cyan mb-3;
+  }
 
-@keyframes glow {
-  from { box-shadow: 0 0 20px hsl(var(--accent-cyan) / 0.4); }
-  to { box-shadow: 0 0 30px hsl(var(--accent-cyan) / 0.8); }
+  .section-eyebrow::before {
+    content: "";
+    @apply w-6 h-px bg-accent-cyan/60;
+  }
+
+  /* Subtle static dot-grid, used behind Hero instead of floating blur blobs */
+  .bg-dot-grid {
+    background-image: radial-gradient(hsl(var(--foreground) / 0.09) 1px, transparent 1px);
+    background-size: 28px 28px;
+  }
 }
 
 @keyframes fade-in {

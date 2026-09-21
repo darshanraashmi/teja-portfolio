@@ -81,11 +81,12 @@ const Contact = () => {
   return (
     <section id="contact" className="py-20">
       <div className="container mx-auto px-6">
-        <Reveal className="text-center mb-16">
-          <h2 className="text-4xl lg:text-5xl font-bold mb-6">
-            Let's <span className="gradient-primary bg-clip-text text-transparent">Connect</span>
+        <Reveal className="mb-16">
+          <span className="section-eyebrow">Get In Touch</span>
+          <h2 className="text-4xl lg:text-5xl font-bold tracking-tight mb-4">
+            Let's Connect
           </h2>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+          <p className="text-xl text-muted-foreground max-w-3xl">
             Ready to transform your cloud infrastructure? Let's discuss your project and explore how we can work together.
           </p>
         </Reveal>
@@ -93,12 +94,12 @@ const Contact = () => {
         <div className="grid lg:grid-cols-3 gap-12">
           {/* Contact Information */}
           <Reveal className="lg:col-span-1 space-y-8">
-            <Card className="p-6 gradient-card border-accent-cyan/20">
+            <Card className="p-6 border-border/80 card-shadow">
               <h3 className="text-xl font-bold mb-6 flex items-center gap-2">
                 <MessageCircle className="h-5 w-5 text-accent-cyan" />
                 Get in Touch
               </h3>
-              
+
               <div className="space-y-4">
                 <div className="flex items-center gap-3 p-3 bg-secondary/50 rounded-lg hover:bg-accent-cyan/10 transition-colors">
                   <Mail className="h-5 w-5 text-accent-cyan" />
@@ -116,32 +117,32 @@ const Contact = () => {
                   </div>
                 </div>
 
-                <div className="flex items-center gap-3 p-3 bg-secondary/50 rounded-lg hover:bg-accent-purple/1 transition-colors">
-                  <LinkedinIcon className="h-5 w-5 text-accent-purple" />
+                <div className="flex items-center gap-3 p-3 bg-secondary/50 rounded-lg hover:bg-accent-cyan/10 transition-colors">
+                  <LinkedinIcon className="h-5 w-5 text-accent-cyan" />
                   <div>
                     <div className="font-medium">LinkedIn</div>
                     <div className="text-sm text-muted-foreground">linkedin.com/in/teja-darshan</div>
                   </div>
                 </div>
-                
-                <div className="flex items-center gap-3 p-3 bg-secondary/50 rounded-lg hover:bg-primary/10 transition-colors">
-                  <MapPin className="h-5 w-5 text-primary" />
+
+                <div className="flex items-center gap-3 p-3 bg-secondary/50 rounded-lg hover:bg-accent-cyan/10 transition-colors">
+                  <MapPin className="h-5 w-5 text-accent-cyan" />
                   <div>
                     <div className="font-medium">Location</div>
                     <div className="text-sm text-muted-foreground">Ottawa, ON, Canada</div>
                   </div>
                 </div>
-                
-                <div className="flex items-center gap-3 p-3 bg-secondary/50 rounded-lg hover:bg-accent-green/10 transition-colors">
-                  <Github className="h-5 w-5 text-accent-green" />
+
+                <div className="flex items-center gap-3 p-3 bg-secondary/50 rounded-lg hover:bg-accent-cyan/10 transition-colors">
+                  <Github className="h-5 w-5 text-accent-cyan" />
                   <div>
                     <div className="font-medium">GitHub</div>
                     <div className="text-sm text-muted-foreground">github.com/darshanraashmi</div>
                   </div>
                 </div>
-                
-                <div className="flex items-center gap-3 p-3 bg-secondary/50 rounded-lg hover:bg-accent-blue/10 transition-colors">
-                  <Clock className="h-5 w-5 text-accent-blue" />
+
+                <div className="flex items-center gap-3 p-3 bg-secondary/50 rounded-lg hover:bg-accent-cyan/10 transition-colors">
+                  <Clock className="h-5 w-5 text-accent-cyan" />
                   <div>
                     <div className="font-medium">Response Time</div>
                     <div className="text-sm text-muted-foreground">Within 24 hours</div>
@@ -151,19 +152,19 @@ const Contact = () => {
             </Card>
 
 
-            <Card className="p-6 gradient-card border-primary/20">
+            <Card className="p-6 border-border/80 card-shadow">
               <h3 className="text-xl font-bold mb-4">Open To</h3>
               <div className="space-y-2">
                 <Badge variant="outline" className="w-full justify-start border-accent-cyan/30 text-accent-cyan p-2">
                   AWS Solutions Architect Roles
                 </Badge>
-                <Badge variant="outline" className="w-full justify-start border-accent-purple/30 text-accent-purple p-2">
+                <Badge variant="outline" className="w-full justify-start border-accent-cyan/30 text-accent-cyan p-2">
                   Cloud Operations / DevOps Engineer Roles
                 </Badge>
-                <Badge variant="outline" className="w-full justify-start border-primary/30 text-primary p-2">
+                <Badge variant="outline" className="w-full justify-start border-accent-cyan/30 text-accent-cyan p-2">
                   Full-time Opportunities (Ottawa / Remote Canada)
                 </Badge>
-                <Badge variant="outline" className="w-full justify-start border-accent-blue/30 text-accent-cyan p-2">
+                <Badge variant="outline" className="w-full justify-start border-accent-cyan/30 text-accent-cyan p-2">
                   Contract / Consulting Engagements
                 </Badge>
               </div>
@@ -172,7 +173,7 @@ const Contact = () => {
 
           {/* Contact Form */}
           <Reveal delay={150} className="lg:col-span-2">
-            <Card className="p-8 gradient-card border-accent-cyan/20 hover:glow-effect transition-all duration-300">
+            <Card className="p-8 border-border/80 card-shadow">
               <h3 className="text-2xl font-bold mb-6">Send Me a Message</h3>
               
               <form onSubmit={handleSubmit} className="space-y-6">
@@ -281,7 +282,7 @@ const Contact = () => {
 
         {/* Bottom CTA */}
         <Reveal className="text-center mt-16">
-          <Card className="p-8 gradient-card border-accent-cyan/20 inline-block">
+          <Card className="p-8 border-border/80 card-shadow inline-block">
             <h3 className="text-2xl font-bold mb-4">
               Ready to Start Your Cloud Journey?
             </h3>

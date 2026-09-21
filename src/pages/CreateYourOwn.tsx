@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { Upload, Download, User, Github, Linkedin, GraduationCap, Code, Briefcase, Star, FileText, Plus, X, Phone, Mail } from 'lucide-react';
+import { Upload, Download, User, Github, Linkedin, GraduationCap, Code, Briefcase, Star, FileText, Plus, X, Phone, Mail, ArrowLeft } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
@@ -672,6 +673,14 @@ const CreateYourOwn: React.FC = () => {
   return (
     <div className="min-h-screen bg-background p-6">
       <div className="max-w-4xl mx-auto">
+        <Link
+          to="/"
+          className="inline-flex items-center gap-2 text-muted-foreground hover:text-accent-cyan transition-colors mb-6"
+        >
+          <ArrowLeft className="w-4 h-4" />
+          Back to Home
+        </Link>
+
         <div className="text-center mb-8">
           <h1 className="text-4xl font-bold bg-gradient-primary bg-clip-text text-transparent mb-4">
             Create Your Portfolio

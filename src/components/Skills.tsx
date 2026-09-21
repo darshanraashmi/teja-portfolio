@@ -19,7 +19,6 @@ const Skills = () => {
     {
       title: "Cloud Platforms",
       icon: Cloud,
-      color: "accent-cyan",
       skills: [
         { name: "AWS", level: 80, tools: ["Lambda", "API Gateway", "DynamoDB", "S3", "Cognito", "RDS"] },
         { name: "Azure", level: 60, tools: ["App Services", "Functions", "Logic Apps", "Cosmos DB"] },
@@ -28,7 +27,6 @@ const Skills = () => {
     {
       title: "Languages",
       icon: Code,
-      color: "accent-purple",
       skills: [
         { name: "Node.js", level: 95, tools: ["Express", "Serverless Framework", "REST APIs"] },
         { name: "Python", level: 85, tools: ["FastAPI", "Django", "Data Processing"] },
@@ -38,7 +36,6 @@ const Skills = () => {
     {
       title: "Mobile Development",
       icon: Smartphone,
-      color: "accent-blue",
       skills: [
         { name: "React Native", level: 75, tools: ["Expo", "EAS Build", "Cross-platform UI"] },
         { name: "Flutter", level: 65, tools: ["Google Play Store", "App Signing"] },
@@ -47,7 +44,6 @@ const Skills = () => {
     {
       title: "DevOps & CI/CD",
       icon: GitBranch,
-      color: "primary",
       skills: [
         { name: "CircleCI", level: 90, tools: ["Pipeline Design", "Automated Testing", "Deployment"] },
         { name: "Jenkins", level: 85, tools: ["Build Automation", "Pipeline as Code"] },
@@ -57,7 +53,6 @@ const Skills = () => {
     {
       title: "IaC / DevOps",
       icon: Settings,
-      color: "accent-blue",
       skills: [
         { name: "Terraform", level: 90, tools: ["Multi-cloud", "State Management", "Modules"] },
         { name: "CloudFormation", level: 85, tools: ["AWS Resources", "Stack Management"] },
@@ -66,7 +61,6 @@ const Skills = () => {
     {
       title: "Security & Compliance",
       icon: Shield,
-      color: "accent-cyan",
       skills: [
         { name: "AWS Security", level: 90, tools: ["IAM", "Security Groups", "KMS"] },
         { name: "Snyk", level: 80, tools: ["Vulnerability Scanning", "Dependency Check"] },
@@ -75,7 +69,6 @@ const Skills = () => {
     {
       title: "Monitoring & FinOps",
       icon: Monitor,
-      color: "accent-purple",
       skills: [
         { name: "CloudWatch", level: 60, tools: ["Metrics", "Logs", "Alarms"] },
         { name: "Datadog", level: 60, tools: ["APM", "Infrastructure Monitoring"] },
@@ -87,58 +80,49 @@ const Skills = () => {
   return (
     <section id="skills" className="py-20">
       <div className="container mx-auto px-6">
-        <Reveal className="text-center mb-16">
-          <h2 className="text-4xl lg:text-5xl font-bold mb-6">
-            Skills & <span className="gradient-primary bg-clip-text text-transparent">Expertise</span>
+        <Reveal className="mb-16">
+          <span className="section-eyebrow">Capabilities</span>
+          <h2 className="text-4xl lg:text-5xl font-bold tracking-tight mb-4">
+            Skills &amp; Expertise
           </h2>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+          <p className="text-xl text-muted-foreground max-w-3xl">
             Comprehensive technical skills across cloud platforms, development, and DevOps practices
           </p>
         </Reveal>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {skillCategories.map((category, index) => {
-            const IconComponent = category.icon;
-            return (
-              <Reveal key={index} delay={(index % 3) * 100}>
-              <Card className="p-6 gradient-card border-accent-cyan/20 hover:glow-effect hover:-translate-y-1 transition-all duration-300 group">
-                <div className="flex items-center gap-4 mb-6">
-                  <div className={`p-3 bg-${category.color}/20 rounded-lg group-hover:animate-pulse`}>
-                    <IconComponent className={`h-6 w-6 text-${category.color}`} />
-                  </div>
-                  <h3 className="text-xl font-semibold">{category.title}</h3>
-                </div>
-
-                <div className="space-y-6">
-                  {category.skills.map((skill, skillIndex) => (
-                    <div key={skillIndex}>
-                      <div className="flex justify-between items-center mb-2">
-                        <span className="font-medium">{skill.name}</span>
-                        <span className={`text-${category.color} font-semibold`}>{skill.level}%</span>
-                      </div>
-                      <Progress 
-                        value={skill.level} 
-                        className="h-2 mb-3" 
-                      />
-                      <div className="flex flex-wrap gap-1">
-                        {skill.tools.map((tool, toolIndex) => (
-                          <Badge 
-                            key={toolIndex} 
-                            variant="outline" 
-                            className={`text-xs border-${category.color}/30 text-${category.color}`}
-                          >
-                            {tool}
-                          </Badge>
-                        ))}
-                      </div>
+        {/* Compact list layout instead of a grid of identical badge-cluster cards */}
+        <Card className="border-border/80 card-shadow overflow-hidden">
+          <div className="divide-y divide-border">
+            {skillCategories.map((category, index) => {
+              const IconComponent = category.icon;
+              return (
+                <Reveal key={index} delay={(index % 3) * 60}>
+                  <div className="p-5 sm:p-6">
+                    <div className="flex items-center gap-3 mb-4">
+                      <IconComponent className="h-5 w-5 text-accent-cyan flex-shrink-0" />
+                      <h3 className="text-base sm:text-lg font-semibold">{category.title}</h3>
                     </div>
-                  ))}
-                </div>
-              </Card>
-              </Reveal>
-            );
-          })}
-        </div>
+
+                    <div className="grid sm:grid-cols-2 gap-x-8 gap-y-4">
+                      {category.skills.map((skill, skillIndex) => (
+                        <div key={skillIndex}>
+                          <div className="flex justify-between items-baseline mb-1.5">
+                            <span className="text-sm font-medium">{skill.name}</span>
+                            <span className="text-xs text-muted-foreground">{skill.level}%</span>
+                          </div>
+                          <Progress value={skill.level} className="h-1.5 mb-2" />
+                          <div className="text-xs text-muted-foreground/80 leading-relaxed">
+                            {skill.tools.join(" · ")}
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </Reveal>
+              );
+            })}
+          </div>
+        </Card>
 
         {/* Additional tech stack */}
         <Reveal className="mt-16 text-center">

@@ -4,15 +4,43 @@ import { Button } from "@/components/ui/button";
 import { GraduationCap, Code, Cloud, Shield, Smartphone, Award, LinkedinIcon, MapPin } from "lucide-react";
 import Reveal from "@/components/Reveal";
 
+const skillHighlights = [
+  {
+    icon: Cloud,
+    title: "Cloud Expertise",
+    blurb: "AWS and Azure, designing scalable infrastructure",
+    tags: ["AWS Lambda", "Azure Functions", "API Gateway"],
+  },
+  {
+    icon: Code,
+    title: "Development",
+    blurb: "Full-stack, serverless-first, modern frameworks",
+    tags: ["Node.js", "Python", "React"],
+  },
+  {
+    icon: Shield,
+    title: "Security & DevOps",
+    blurb: "Best practices and CI/CD for reliable delivery",
+    tags: ["CircleCI", "Terraform", "Security"],
+  },
+  {
+    icon: Smartphone,
+    title: "Mobile & Backend",
+    blurb: "Cross-platform apps paired with Python APIs",
+    tags: ["Expo", "React Native", "Python"],
+  },
+];
+
 const About = () => {
   return (
     <section id="about" className="py-20 bg-card/30">
       <div className="container mx-auto px-6">
-        <Reveal className="text-center mb-16">
-          <h2 className="text-4xl lg:text-5xl font-bold mb-6">
-            About <span className="gradient-primary bg-clip-text text-transparent">Me</span>
+        <Reveal className="mb-16">
+          <span className="section-eyebrow">Who I Am</span>
+          <h2 className="text-4xl lg:text-5xl font-bold tracking-tight mb-4">
+            About Me
           </h2>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+          <p className="text-xl text-muted-foreground max-w-3xl">
             Passionate about cloud technologies and serverless architectures
           </p>
         </Reveal>
@@ -20,7 +48,7 @@ const About = () => {
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Bio section */}
           <Reveal>
-            <Card className="p-8 gradient-card border-accent-cyan/20 card-shadow">
+            <Card className="p-8 border-border/80 card-shadow">
               <div className="mb-6">
                 <Badge variant="secondary" className="mb-4 bg-accent-cyan/20 text-accent-cyan">
                   Professional Bio
@@ -73,7 +101,7 @@ const About = () => {
 
                 <Button
                   variant="outline"
-                  className="w-full border-accent-purple/30 text-accent-purple hover:bg-accent-purple/10"
+                  className="w-full border-accent-cyan/30 text-accent-cyan hover:bg-accent-cyan/10"
                   onClick={() => window.open('https://linkedin.com/in/teja-darshan', '_blank')}
                 >
                   <LinkedinIcon className="mr-2 h-4 w-4" />
@@ -85,31 +113,31 @@ const About = () => {
                     <div className="text-2xl font-bold text-accent-cyan">400TB+</div>
                     <div className="text-sm text-muted-foreground">Data Migrated (Zero Loss)</div>
                   </div>
-                  <div className="text-center p-4 bg-accent-purple/10 rounded-lg">
-                    <div className="text-2xl font-bold text-accent-purple">40%</div>
+                  <div className="text-center p-4 bg-accent-cyan/10 rounded-lg">
+                    <div className="text-2xl font-bold text-accent-cyan">40%</div>
                     <div className="text-sm text-muted-foreground">RTO/RPO Reduction</div>
                   </div>
                 </div>
               </div>
 
               {/* Key Highlights Section */}
-              <div className="mt-8 p-6 bg-gradient-to-r from-accent-cyan/10 to-accent-purple/10 rounded-lg border border-accent-cyan/20">
+              <div className="mt-8 p-6 bg-secondary/40 rounded-lg border border-border">
                 <h4 className="text-lg font-semibold mb-4 text-accent-cyan">Key Achievements</h4>
                 <div className="space-y-3">
                   <div className="flex items-start gap-3">
-                    <div className="w-2 h-2 bg-accent-cyan rounded-full mt-2 flex-shrink-0"></div>
+                    <div className="w-1.5 h-1.5 bg-accent-cyan rounded-full mt-2 flex-shrink-0"></div>
                     <span className="text-sm text-muted-foreground">Reduced AWS cloud spends by 45% through architecture optimization, Reserved Instance strategy, and cost-awareness training across teams</span>
                   </div>
                   <div className="flex items-start gap-3">
-                    <div className="w-2 h-2 bg-accent-purple rounded-full mt-2 flex-shrink-0"></div>
+                    <div className="w-1.5 h-1.5 bg-accent-cyan rounded-full mt-2 flex-shrink-0"></div>
                     <span className="text-sm text-muted-foreground">Architecture & Best Practices: Serverless Architecture, High Availability Design, Disaster Recovery Implementation, Cost Optimization, Multi-region Deployments</span>
                   </div>
                   <div className="flex items-start gap-3">
-                    <div className="w-2 h-2 bg-primary rounded-full mt-2 flex-shrink-0"></div>
+                    <div className="w-1.5 h-1.5 bg-accent-cyan rounded-full mt-2 flex-shrink-0"></div>
                     <span className="text-sm text-muted-foreground">Financial Management & FinOps implementation for enterprise-level cost optimization</span>
                   </div>
                   <div className="flex items-start gap-3">
-                    <div className="w-2 h-2 bg-accent-blue rounded-full mt-2 flex-shrink-0"></div>
+                    <div className="w-1.5 h-1.5 bg-accent-cyan rounded-full mt-2 flex-shrink-0"></div>
                     <span className="text-sm text-muted-foreground">Monitoring & Observability: Comprehensive monitoring solutions using CloudWatch, Datadog, and Sumo Logic</span>
                   </div>
                 </div>
@@ -117,84 +145,35 @@ const About = () => {
             </Card>
           </Reveal>
 
-          {/* Skills highlights */}
-          <div className="space-y-6">
-            <Reveal delay={0}>
-              <Card className="p-6 gradient-card border-accent-purple/20 hover:glow-effect transition-all duration-300">
-                <div className="flex items-center gap-4 mb-4">
-                  <div className="p-3 bg-accent-cyan/20 rounded-lg">
-                    <Cloud className="h-6 w-6 text-accent-cyan" />
+          {/* Skills highlights — one integrated block instead of 4 identical cards */}
+          <Reveal delay={100}>
+            <Card className="p-6 lg:p-8 border-border/80 card-shadow divide-y divide-border">
+              {skillHighlights.map((item, index) => {
+                const Icon = item.icon;
+                return (
+                  <div
+                    key={item.title}
+                    className={`flex items-start gap-4 ${index === 0 ? "pb-5" : "py-5"} ${
+                      index === skillHighlights.length - 1 ? "pb-0" : ""
+                    }`}
+                  >
+                    <div className="p-2.5 rounded-md bg-accent-cyan/10 flex-shrink-0">
+                      <Icon className="h-5 w-5 text-accent-cyan" />
+                    </div>
+                    <div className="min-w-0">
+                      <h3 className="text-base font-semibold mb-1">{item.title}</h3>
+                      <p className="text-sm text-muted-foreground mb-2">{item.blurb}</p>
+                      <div className="flex flex-wrap gap-x-3 gap-y-1 text-xs text-muted-foreground/80">
+                        {item.tags.map((tag) => (
+                          <span key={tag}>{tag}</span>
+                        ))}
+                      </div>
+                    </div>
                   </div>
-                  <h3 className="text-xl font-semibold">Cloud Expertise</h3>
-                </div>
-                <p className="text-muted-foreground mb-4">
-                  Deep expertise in AWS and Azure cloud platforms, designing scalable infrastructures
-                </p>
-                <div className="flex flex-wrap gap-2">
-                  <Badge variant="outline" className="border-accent-cyan/30 text-accent-cyan">AWS Lambda</Badge>
-                  <Badge variant="outline" className="border-accent-cyan/30 text-accent-cyan">Azure Functions</Badge>
-                  <Badge variant="outline" className="border-accent-cyan/30 text-accent-cyan">API Gateway</Badge>
-                </div>
-              </Card>
-            </Reveal>
-
-            <Reveal delay={100}>
-              <Card className="p-6 gradient-card border-accent-blue/20 hover:glow-effect transition-all duration-300">
-                <div className="flex items-center gap-4 mb-4">
-                  <div className="p-3 bg-accent-purple/20 rounded-lg">
-                    <Code className="h-6 w-6 text-accent-purple" />
-                  </div>
-                  <h3 className="text-xl font-semibold">Development Skills</h3>
-                </div>
-                <p className="text-muted-foreground mb-4">
-                  Full-stack development with focus on serverless architectures and modern frameworks
-                </p>
-                <div className="flex flex-wrap gap-2">
-                  <Badge variant="outline" className="border-accent-purple/30 text-accent-purple">Node.js</Badge>
-                  <Badge variant="outline" className="border-accent-purple/30 text-accent-purple">Python</Badge>
-                  <Badge variant="outline" className="border-accent-purple/30 text-accent-purple">React</Badge>
-                </div>
-              </Card>
-            </Reveal>
-
-            <Reveal delay={200}>
-              <Card className="p-6 gradient-card border-primary/20 hover:glow-effect transition-all duration-300">
-                <div className="flex items-center gap-4 mb-4">
-                  <div className="p-3 bg-primary/20 rounded-lg">
-                    <Shield className="h-6 w-6 text-primary" />
-                  </div>
-                  <h3 className="text-xl font-semibold">Security & DevOps</h3>
-                </div>
-                <p className="text-muted-foreground mb-4">
-                  Implementation of security best practices and CI/CD pipelines for robust deployments
-                </p>
-                <div className="flex flex-wrap gap-2">
-                  <Badge variant="outline" className="border-primary/30 text-primary">CircleCI</Badge>
-                  <Badge variant="outline" className="border-primary/30 text-primary">Terraform</Badge>
-                  <Badge variant="outline" className="border-primary/30 text-primary">Security</Badge>
-                </div>
-              </Card>
-            </Reveal>
-
-            <Reveal delay={300}>
-              <Card className="p-6 gradient-card border-accent-blue/20 hover:glow-effect transition-all duration-300">
-                <div className="flex items-center gap-4 mb-4">
-                  <div className="p-3 bg-accent-blue/20 rounded-lg">
-                    <Smartphone className="h-6 w-6 text-accent-blue" />
-                  </div>
-                  <h3 className="text-xl font-semibold">Mobile & Backend</h3>
-                </div>
-                <p className="text-muted-foreground mb-4">
-                  Cross-platform mobile app development paired with Python backend APIs
-                </p>
-                <div className="flex flex-wrap gap-2">
-                  <Badge variant="outline" className="border-accent-blue/30 text-accent-blue">Expo</Badge>
-                  <Badge variant="outline" className="border-accent-blue/30 text-accent-blue">React Native</Badge>
-                  <Badge variant="outline" className="border-accent-blue/30 text-accent-blue">Python</Badge>
-                </div>
-              </Card>
-            </Reveal>
-          </div>
+                );
+              })}
+            </Card>
+          </Reveal>
         </div>
       </div>
     </section>

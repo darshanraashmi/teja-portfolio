@@ -6,7 +6,6 @@ import {
   Settings,
   GitBranch,
   Server,
-  ArrowRight,
   CheckCircle,
   Smartphone
 } from "lucide-react";
@@ -26,7 +25,6 @@ const Services = () => {
         "Multi-cloud solutions"
       ],
       technologies: ["AWS", "Azure", "Multi-cloud"],
-      color: "accent-cyan"
     },
     {
       icon: Settings,
@@ -40,7 +38,6 @@ const Services = () => {
         "Quality assurance"
       ],
       technologies: ["Jenkins", "CircleCI", "Azure DevOps"],
-      color: "accent-purple"
     },
     {
       icon: GitBranch,
@@ -54,7 +51,6 @@ const Services = () => {
         "Security integration"
       ],
       technologies: ["CircleCI", "Docker", "Kubernetes"],
-      color: "primary"
     },
     {
       icon: Server,
@@ -68,7 +64,6 @@ const Services = () => {
         "Cost-effective scaling"
       ],
       technologies: ["AWS Lambda", "Azure Functions", "Node.js"],
-      color: "accent-blue"
     },
     {
       icon: Cloud,
@@ -82,7 +77,6 @@ const Services = () => {
         "Operational troubleshooting"
       ],
       technologies: ["AWS", "CloudWatch", "Systems Manager"],
-      color: "accent-cyan"
     },
     {
       icon: Settings,
@@ -96,7 +90,6 @@ const Services = () => {
         "Financial governance"
       ],
       technologies: ["Cost Explorer", "CloudHealth", "Terraform"],
-      color: "primary"
     },
     {
       icon: Smartphone,
@@ -110,74 +103,62 @@ const Services = () => {
         "Backend integration & data modeling"
       ],
       technologies: ["Expo", "React Native", "Python", "FastAPI"],
-      color: "accent-blue"
     }
   ];
 
   return (
     <section id="services" className="py-20">
       <div className="container mx-auto px-6">
-        <Reveal className="text-center mb-16">
-          <h2 className="text-4xl lg:text-5xl font-bold mb-6">
-            Services <span className="gradient-primary bg-clip-text text-transparent">Offered</span>
+        <Reveal className="mb-16">
+          <span className="section-eyebrow">What I Do</span>
+          <h2 className="text-4xl lg:text-5xl font-bold tracking-tight mb-4">
+            Services Offered
           </h2>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+          <p className="text-xl text-muted-foreground max-w-3xl">
             Comprehensive cloud and DevOps solutions tailored to your business needs
           </p>
         </Reveal>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+        {/* Tighter list layout instead of a uniform 3-col card grid */}
+        <div className="mb-16 border-t border-border">
           {services.map((service, index) => {
             const IconComponent = service.icon;
             return (
-              <Reveal key={index} delay={(index % 3) * 100}>
-              <Card
-                className="p-8 gradient-card border-accent-cyan/20 hover:glow-effect hover:-translate-y-1 transition-all duration-300 group cursor-pointer"
-              >
-                <div className="flex items-center gap-4 mb-6">
-                  <div className={`p-4 bg-${service.color}/20 rounded-xl group-hover:animate-pulse`}>
-                    <IconComponent className={`h-8 w-8 text-${service.color}`} />
+              <Reveal key={index} delay={(index % 3) * 60}>
+                <div className="py-8 border-b border-border grid sm:grid-cols-[3rem_1fr] lg:grid-cols-[3rem_16rem_1fr] gap-x-6 gap-y-4">
+                  <div className="w-11 h-11 rounded-lg bg-accent-cyan/10 flex items-center justify-center flex-shrink-0">
+                    <IconComponent className="h-5 w-5 text-accent-cyan" />
                   </div>
-                  <div>
-                    <h3 className="text-2xl font-bold group-hover:text-accent-cyan transition-colors">
-                      {service.title}
-                    </h3>
-                    <div className="flex flex-wrap gap-2 mt-2">
+
+                  <div className="lg:pr-6">
+                    <h3 className="text-xl font-bold mb-1.5">{service.title}</h3>
+                    <p className="text-sm text-muted-foreground leading-relaxed mb-3">
+                      {service.description}
+                    </p>
+                    <div className="flex flex-wrap gap-2">
                       {service.technologies.map((tech, techIndex) => (
-                        <Badge 
+                        <Badge
                           key={techIndex}
-                          variant="outline" 
-                          className={`text-xs border-${service.color}/30 text-${service.color}`}
+                          variant="outline"
+                          className="text-xs border-accent-cyan/30 text-accent-cyan font-normal"
                         >
                           {tech}
                         </Badge>
                       ))}
                     </div>
                   </div>
+
+                  <div className="sm:col-span-2 lg:col-span-1">
+                    <ul className="space-y-1.5">
+                      {service.features.map((feature, featureIndex) => (
+                        <li key={featureIndex} className="flex items-center gap-2 text-sm text-muted-foreground">
+                          <CheckCircle className="h-3.5 w-3.5 text-accent-cyan/70 flex-shrink-0" />
+                          <span>{feature}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
                 </div>
-
-                <p className="text-muted-foreground mb-6 leading-relaxed">
-                  {service.description}
-                </p>
-
-                <div className="space-y-3 mb-8">
-                  {service.features.map((feature, featureIndex) => (
-                    <div key={featureIndex} className="flex items-center gap-3">
-                      <CheckCircle className={`h-5 w-5 text-${service.color} flex-shrink-0`} />
-                      <span className="text-foreground">{feature}</span>
-                    </div>
-                  ))}
-                </div>
-
-                <Button 
-                  variant="outline" 
-                  className={`w-full border-${service.color}/30 text-${service.color} hover:bg-${service.color}/10 group`}
-                  onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
-                >
-                  Get Started
-                  <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
-                </Button>
-              </Card>
               </Reveal>
             );
           })}
@@ -222,18 +203,18 @@ const Services = () => {
 
           {/* CTA Section */}
           <Reveal className="text-center">
-            <Card className="p-8 gradient-card border-accent-cyan/20 inline-block max-w-4xl">
+            <Card className="p-8 border-border/80 card-shadow inline-block max-w-4xl">
               <h3 className="text-2xl font-bold mb-4">
                 Ready to Transform Your Infrastructure?
               </h3>
               <p className="text-muted-foreground mb-6 max-w-2xl mx-auto">
-                Let's discuss how we can optimize your cloud infrastructure, implement robust DevOps practices, 
+                Let's discuss how we can optimize your cloud infrastructure, implement robust DevOps practices,
                 and accelerate your digital transformation journey.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Button 
-                  size="lg" 
-                  className="gradient-primary hover:glow-effect"
+                <Button
+                  size="lg"
+                  className="bg-accent-cyan text-background hover:bg-accent-cyan/90"
                   onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
                 >
                   Schedule Consultation

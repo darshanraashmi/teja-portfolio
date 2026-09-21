@@ -24,7 +24,6 @@ const Portfolio = () => {
         "Significant backup cost reduction via S3 Glacier Deep Archive"
       ],
       technologies: ["AWS RDS", "PostgreSQL", "S3 Glacier Deep Archive", "Data Migration"],
-      color: "accent-cyan"
     },
     {
       title: "Multi-Region Disaster Recovery Architecture",
@@ -37,7 +36,6 @@ const Portfolio = () => {
         "Automated failover with no manual intervention required"
       ],
       technologies: ["AWS", "Multi-region DR", "Automated Failover", "Terraform"],
-      color: "primary"
     },
     {
       title: "Azure Resiliency & FinOps Optimization",
@@ -50,7 +48,6 @@ const Portfolio = () => {
         "30% cost savings via FinOps practices"
       ],
       technologies: ["Azure App Services", "Geo-Replication", "FinOps", "Logic Apps"],
-      color: "accent-purple"
     },
     {
       title: "Cross-Platform Mobile Apps Shipped to Production",
@@ -63,7 +60,6 @@ const Portfolio = () => {
         "Full ownership across two mobile frameworks (React Native + Flutter)"
       ],
       technologies: ["React Native", "Expo", "Flutter", "Google Play Console"],
-      color: "accent-blue"
     },
     {
       title: "Blockchain Smart Contract Trading System",
@@ -76,18 +72,18 @@ const Portfolio = () => {
         "Production system for CRC Scrap Sales, USA"
       ],
       technologies: ["Hyperledger Fabric", "Node.js", "Smart Contracts"],
-      color: "accent-purple"
     }
   ];
 
   return (
     <section id="portfolio" className="py-20 bg-card/30">
       <div className="container mx-auto px-6">
-        <Reveal className="text-center mb-16">
-          <h2 className="text-4xl lg:text-5xl font-bold mb-6">
-            Featured <span className="gradient-primary bg-clip-text text-transparent">Case Studies</span>
+        <Reveal className="mb-16">
+          <span className="section-eyebrow">Selected Work</span>
+          <h2 className="text-4xl lg:text-5xl font-bold tracking-tight mb-4">
+            Featured Case Studies
           </h2>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+          <p className="text-xl text-muted-foreground max-w-3xl">
             Real problems, the approach taken, and the measurable outcomes
           </p>
         </Reveal>
@@ -96,10 +92,10 @@ const Portfolio = () => {
           {caseStudies.map((project, index) => (
             <Reveal key={index} delay={(index % 2) * 100}>
             <Card
-              className="overflow-hidden gradient-card border-accent-cyan/20 hover:glow-effect hover:-translate-y-1 transition-all duration-300 group"
+              className="overflow-hidden border-border/80 card-shadow hover:border-accent-cyan/40 transition-colors duration-300 group"
             >
               {/* Project Image */}
-              <div className="relative h-40 bg-gradient-accent overflow-hidden">
+              <div className="relative h-40 bg-secondary overflow-hidden">
                 <img
                   src={project.image}
                   alt={`${project.title} project illustration`}
@@ -123,27 +119,27 @@ const Portfolio = () => {
 
                 <div className="space-y-4 mb-6">
                   <div className="flex gap-3">
-                    <Target className={`h-5 w-5 text-${project.color} flex-shrink-0 mt-0.5`} />
+                    <Target className="h-5 w-5 text-accent-cyan flex-shrink-0 mt-0.5" />
                     <div>
                       <div className="text-sm font-semibold text-foreground mb-1">Problem</div>
                       <p className="text-sm text-muted-foreground leading-relaxed">{project.problem}</p>
                     </div>
                   </div>
                   <div className="flex gap-3">
-                    <Lightbulb className={`h-5 w-5 text-${project.color} flex-shrink-0 mt-0.5`} />
+                    <Lightbulb className="h-5 w-5 text-accent-cyan flex-shrink-0 mt-0.5" />
                     <div>
                       <div className="text-sm font-semibold text-foreground mb-1">Approach</div>
                       <p className="text-sm text-muted-foreground leading-relaxed">{project.approach}</p>
                     </div>
                   </div>
                   <div className="flex gap-3">
-                    <TrendingUp className={`h-5 w-5 text-${project.color} flex-shrink-0 mt-0.5`} />
+                    <TrendingUp className="h-5 w-5 text-accent-cyan flex-shrink-0 mt-0.5" />
                     <div>
                       <div className="text-sm font-semibold text-foreground mb-1">Result</div>
                       <ul className="space-y-1">
                         {project.results.map((result, resultIndex) => (
                           <li key={resultIndex} className="text-sm text-muted-foreground flex items-start gap-2">
-                            <div className={`w-1.5 h-1.5 bg-${project.color} rounded-full mt-1.5 flex-shrink-0`}></div>
+                            <div className="w-1.5 h-1.5 bg-accent-cyan rounded-full mt-1.5 flex-shrink-0"></div>
                             <span>{result}</span>
                           </li>
                         ))}
@@ -158,7 +154,7 @@ const Portfolio = () => {
                     <Badge
                       key={techIndex}
                       variant="outline"
-                      className={`text-xs border-${project.color}/30 text-${project.color}`}
+                      className="text-xs border-accent-cyan/30 text-accent-cyan"
                     >
                       {tech}
                     </Badge>

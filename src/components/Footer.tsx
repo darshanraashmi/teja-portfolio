@@ -56,28 +56,28 @@ const Footer = () => {
             </div>
             
             <div className="flex gap-4">
-              <Button 
-                variant="ghost" 
-                size="icon" 
-                className="hover:text-accent-cyan hover:bg-accent-cyan/10 transition-colors"
+              <Button
+                variant="ghost"
+                size="icon"
+                className="text-foreground hover:text-accent-cyan hover:bg-accent-cyan/10 transition-colors"
                 onClick={() => window.open('https://linkedin.com/in/teja-darshan', '_blank')}
               >
                 <LinkedinIcon className="h-5 w-5" />
               </Button>
-              <Button 
-                variant="ghost" 
-                size="icon" 
-                className="hover:text-accent-cyan hover:bg-accent-cyan/10 transition-colors"
+              <Button
+                variant="ghost"
+                size="icon"
+                className="text-foreground hover:text-accent-cyan hover:bg-accent-cyan/10 transition-colors"
                 onClick={() => window.open('mailto:tejadarshan@gmail.com', '_blank')}
               >
                 <Mail className="h-5 w-5" />
               </Button>
-              <Button 
-                variant="ghost" 
-                size="icon" 
-                className="hover:text-accent-cyan hover:bg-accent-cyan/10 transition-colors"
+              <Button
+                variant="ghost"
+                size="icon"
+                className="text-foreground hover:text-accent-cyan hover:bg-accent-cyan/10 transition-colors"
                 onClick={() => window.open('https://github.com/darshanraashmi', '_blank')}
-                
+
               >
                 <Github className="h-5 w-5" />
               </Button>
